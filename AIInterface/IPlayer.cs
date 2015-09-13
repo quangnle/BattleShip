@@ -10,6 +10,7 @@ namespace BattleShip.AIInterface
     {
         string Name { get; set; }
         BaseMapInfo LoadMap();
+        BaseMapInfo GetMap();
         Position GetMove(Random rnd);
         void UpdateInfo(HitInfo info);
     }

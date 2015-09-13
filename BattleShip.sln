@@ -1,9 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleShip", "BattleShip\BattleShip.csproj", "{F720655E-9AD3-4950-A9FE-854D4E065529}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A085E686-BDF8-46D7-A727-1CE9AFF27D4F} = {A085E686-BDF8-46D7-A727-1CE9AFF27D4F}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AIInterface", "AIInterface\AIInterface.csproj", "{B0383591-B7DB-4484-87D6-0DF180C08FA7}"
 EndProject

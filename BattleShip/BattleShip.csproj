@@ -53,6 +53,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BattleEventArguments\ShotEventArgs.cs" />
+    <Compile Include="BattleEventArguments\SwitchTurnArgs.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Core\Vector2.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,6 +71,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\PlayerModel.cs" />
     <Compile Include="Processor\BattleController.cs" />
     <Compile Include="Processor\BattleMap.cs" />
     <Compile Include="Processor\DllLoader.cs" />

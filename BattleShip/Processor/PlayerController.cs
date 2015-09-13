@@ -12,6 +12,11 @@ namespace BattleShip.Processor
         private BattleMap _map;
         private IPlayer _player;
         public string Name { get { return _player.Name; } }
+
+        public BattleMap Map { 
+            get { return _map; }
+        }
+
         public PlayerController(IPlayer player, BaseMapInfo mapInfo)
         {
             _player = player;
