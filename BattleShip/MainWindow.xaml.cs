@@ -46,9 +46,15 @@ namespace BattleShip
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
             BattleController controller = new BattleController();
-            controller.Initialize("P1", _p1, "P2", _p2);
+            controller.Initialize(_p1, _p2);
             controller.OnAttack += Attack;
+            controller.OnBattleEnd += BattleEnd;
             controller.Battle();
+        }
+
+        private void BattleEnd(string winner)
+        {
+            MessageBox.Show(winner);
         }
         private void Attack(string playerName, Position pos, bool isHit)
         {

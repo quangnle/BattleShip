@@ -10,12 +10,10 @@ namespace BattleShip.Processor
     public class PlayerController
     {
         private BattleMap _map;
-        private string _name;
         private IPlayer _player;
-        public string Name { get { return _name; } }
-        public PlayerController(string playerName, IPlayer player, BaseMapInfo mapInfo)
+        public string Name { get { return _player.Name; } }
+        public PlayerController(IPlayer player, BaseMapInfo mapInfo)
         {
-            _name = playerName;
             _player = player;
             _map = new BattleMap(mapInfo);
             _map.InitShips(mapInfo);

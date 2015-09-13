@@ -9,23 +9,25 @@ using System.Threading.Tasks;
 
 namespace BattleShip.Processor
 {
-    public delegate void OnAttackHandler(string playName, Position pos, bool isHit);
+    public delegate void OnAttackHandler(string playerName, Position pos, bool isHit);
+    public delegate void OnBattleEndHandler(string winner);
     public class BattleController
     {
         private PlayerController _player1, _player2;
         public OnAttackHandler OnAttack;
+        public OnBattleEndHandler OnBattleEnd;
 
-        public void Initialize(string player1Name, IPlayer player1, string player2Name, IPlayer player2)
+        public void Initialize(IPlayer player1, IPlayer player2)
         {
             try
             {
-                _player1 = new PlayerController(player1Name, player1, player1.LoadMap());
-                _player2 = new PlayerController(player2Name, player2, player2.LoadMap());
+                _player1 = new PlayerController(player1, player1.LoadMap());
+                _player2 = new PlayerController(player2, player2.LoadMap());
             }
             catch (Exception) { throw; }
             
         }
-        public int Battle()
+        public string Battle()
         {
             Random rnd = new Random();
             try
@@ -49,8 +51,14 @@ namespace BattleShip.Processor
                     }
                 }
 
-                if (_player1.IsDead()) return 1;
-                return 2;
+                var winner = _player1.Name;
+                if (_player1.IsDead()) 
+                    winner = _player2.Name;
+
+                if (OnBattleEnd != null)
+                    OnBattleEnd(winner);
+
+                return winner;
             }
             catch (Exception)
             { 

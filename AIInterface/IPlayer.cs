@@ -8,6 +8,7 @@ namespace BattleShip.AIInterface
 {
     public interface IPlayer
     {
+        string Name { get; set; }
         BaseMapInfo LoadMap();
         Position GetMove(Random rnd);
         void UpdateInfo(HitInfo info);
