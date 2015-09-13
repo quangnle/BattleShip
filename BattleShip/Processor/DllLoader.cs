@@ -19,8 +19,8 @@ namespace BattleShip.Processor
                 Assembly assembly = null;
                 assembly = Assembly.LoadFile(path);
                 if (assembly != null)
-                {
-                    var tInfo = assembly.DefinedTypes.First();
+                {   
+                    var tInfo = assembly.DefinedTypes.FirstOrDefault(t => t.GetInterface("IPlayer") == typeof(IPlayer));
                     objType = tInfo.AsType();
                 }
 
