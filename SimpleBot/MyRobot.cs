@@ -9,9 +9,16 @@ namespace SimpleBot
 {
     public class MyRobot : IPlayer
     {
+        private Dictionary<Position, HitInfo> _dic;
+        private Position _recent = null;
+
+        public string Name { get; set; }
         public MyRobot()
         {
+            Name = "Dumb Robot";
+            _dic = new Dictionary<Position, HitInfo>();
         }
+
         public BaseMapInfo LoadMap()
         {
             DefaultMapInfo map = new DefaultMapInfo();
@@ -32,14 +39,23 @@ namespace SimpleBot
 
         public Position GetMove(Random rnd)
         {
-            var r = rnd.Next(0, 10) % 10;
-            var c = rnd.Next(0, 10) % 10;
+            Position pos = null;
+            do 
+            {
+                var r = rnd.Next(0, 10) % 10;
+                var c = rnd.Next(0, 10) % 10;
+                pos = new Position { Row = r, Column = c };
+            } while (_dic.ContainsKey(pos));
 
-            return new Position { Row = r, Column = c };
+            _dic.Add(pos, null);
+            _recent = pos;
+
+            return pos;
         }
 
         public void UpdateInfo(HitInfo info)
         {
+            _dic[_recent] = info;
         }
     }
 }
