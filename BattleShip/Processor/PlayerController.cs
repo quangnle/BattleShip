@@ -18,15 +18,17 @@ namespace BattleShip.Processor
             _map = new BattleMap(mapInfo);
             _map.InitShips(mapInfo);
         }
-        public bool GetShot(Position pos)
+
+        public HitInfo GetShot(Position pos)
         {
+            HitInfo result = null;
             if (pos.Row >= 0 && pos.Row < _map.Height && pos.Column >= 0 && pos.Column < _map.Width)
             {
                 var val = _map[pos.Row, pos.Column];
-                var isHit = false;
+                var p = new Position { Row = pos.Row, Column = pos.Column };
                 if (val <= 0)
                 {
-                    _player.UpdateInfo(new HitInfo { IsHit = false, Destroyed = false });
+                    result = new HitInfo { IsHit = false, Destroyed = false };
                 }
                 else
                 {
@@ -40,16 +42,14 @@ namespace BattleShip.Processor
                     }
 
                     if (count == 1)
-                        _player.UpdateInfo(new HitInfo { IsHit = true, Destroyed = true });
+                        result = new HitInfo { IsHit = true, Destroyed = true };
                     else
-                        _player.UpdateInfo(new HitInfo { IsHit = true, Destroyed = false });
-
-                    isHit = true;
-
+                        result = new HitInfo { IsHit = true, Destroyed = false };
                 }
 
                 _map[pos.Row, pos.Column] = -1;
-                return isHit;
+                result.Pos = p;
+                return result;
             }
             else throw new Exception("Invalid shot");
         }
@@ -61,6 +61,11 @@ namespace BattleShip.Processor
         public Position GetMove(Random rnd)
         {
             return _player.GetMove(rnd);
+        }
+
+        public void Update(HitInfo hitInfo)
+        {
+            _player.UpdateInfo(hitInfo);
         }
 
         public bool IsDead()

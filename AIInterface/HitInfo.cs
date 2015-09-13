@@ -8,6 +8,7 @@ namespace BattleShip.AIInterface
 {
     public class HitInfo
     {
+        public Position Pos { get; set; }
         public bool IsHit { get; set; }
         public bool Destroyed { get; set; }
     }

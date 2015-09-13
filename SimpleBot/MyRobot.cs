@@ -55,7 +55,7 @@ namespace SimpleBot
 
         public void UpdateInfo(HitInfo info)
         {
-            //_dic[_recent] = info;
+            _dic[_recent] = info;
         }
     }
 }

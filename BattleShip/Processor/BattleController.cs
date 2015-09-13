@@ -39,11 +39,13 @@ namespace BattleShip.Processor
                 {
                     var pos = currentPlayer.GetMove(rnd);
 
-                    var isHit = opponent.GetShot(pos);
-                    if (OnAttack != null)
-                        OnAttack(currentPlayer.Name, pos, isHit);
+                    var hitInfo = opponent.GetShot(pos);
+                    currentPlayer.Update(hitInfo);
 
-                    if (!isHit)
+                    if (OnAttack != null)
+                        OnAttack(currentPlayer.Name, pos, hitInfo.IsHit);
+
+                    if (!hitInfo.IsHit)
                     {
                         var tmp = currentPlayer;
                         currentPlayer = opponent;
