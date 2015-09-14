@@ -28,6 +28,7 @@ namespace BattleShip.Processor
         public event EventHandler OnMapUpdated;
         public event EventHandler OnTurnSwitched;
         public event EventHandler OnShot;
+        public event EventHandler OnInitTurn;
 
         public void Initialize(IPlayer player1, IPlayer player2)
         {
@@ -50,16 +51,16 @@ namespace BattleShip.Processor
 
                 while (!_players[0].IsDead() && !_players[1].IsDead())
                 {
+                    if (OnInitTurn != null)
+                        OnInitTurn(this, null);
+
                     var currentPlayer = _players[currentIdx];
                     var opponent = _players[(currentIdx + 1) % 2];
 
                     var pos = currentPlayer.GetMove(rnd);
 
                     if (OnShot != null)
-                    {
                         OnShot(this, new ShotEventArgs() { Row = pos.Row, Column = pos.Column });
-                        Thread.Sleep(400);
-                    }
 
                     var hitInfo = opponent.GetShot(pos);
                     currentPlayer.Update(hitInfo);

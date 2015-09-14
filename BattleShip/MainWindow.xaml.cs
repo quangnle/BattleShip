@@ -177,6 +177,11 @@ namespace BattleShip
             battleThread.Start();
         }
 
+        private void StartEveryShot()
+        {
+            //_bullet.Visibility = Visibility.Hidden;
+        }
+
         private void Shot(int row, int col)
         {
             Vector2 startPos;
@@ -189,11 +194,11 @@ namespace BattleShip
             _bullet.SetValue(Canvas.LeftProperty, startPos.X + (col + 0.5) * _cellWidth - _bullet.Width/2);
             _bullet.SetValue(Canvas.TopProperty, startPos.Y + (row+0.5) * _cellHeight - _bullet.Height/2);
             _bullet.Visibility = Visibility.Visible;
+            battleBoard.InvalidateVisual();
         }
 
         private void SwitchTurn(int playerId)
         {
-            _bullet.Visibility = Visibility.Hidden;
             _currentPlayer = playerId;
         }
 
