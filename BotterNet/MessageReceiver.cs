@@ -33,7 +33,11 @@ namespace BotterNet
 
         public void OnReceivedBytes(byte[] buffer, int numBytes)
         {
-            _buffer.AddRange(buffer.Take(numBytes).ToArray());
+            var receivedBuffer = buffer.Take(numBytes).ToArray();
+
+            Console.WriteLine("Received {0} bytes: {1}", numBytes, String.Join(" ", receivedBuffer.Select(b => b.ToString("X2"))));
+
+            _buffer.AddRange(receivedBuffer);
 
             if (_buffer.Count < BaseMessage.HeaderLength)
                 return;

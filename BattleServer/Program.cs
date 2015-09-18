@@ -10,7 +10,7 @@ namespace BattleServer
     {
         static void Main(string[] args)
         {
-            var server = new BattleServer("127.0.0.1", 4444);
+            var server = new BattleServer("0.0.0.0", 4444);
             server.Start();
         }
     }
