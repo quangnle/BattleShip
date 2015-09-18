@@ -19,5 +19,7 @@ namespace BotterNet.Messages
         StartGame = 201,
         GetAttack = 202,
         AttackResponse = 203,
+
+        GameResult = 210,
     }
 }

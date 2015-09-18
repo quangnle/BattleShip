@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BotterNet.Messages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace BotterNet.Encoders
 {
     public interface BattleEncoder
     {
-        byte[] GetBytes();
+        byte[] Encode(BattleMessage message);
     }
 }

@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace BotterNet.Messages
 {
-    class StartMessage: BattleMessage
+    class AttackMessage: BattleMessage
     {
         public override int Code
         {
-            get { return (int) MessageCode.StartGame; }
+            get { return (int) MessageCode.Attack; }
         }
+
+        public int Row { get; set; }
+        public int Column { get; set; }
     }
 }
