@@ -13,9 +13,9 @@
             <RowDefinition Height="25"/>
             <RowDefinition Height="266*"/>
         </Grid.RowDefinitions>
-        <TextBox Name="TxtServerIp" Text="Your Server's IP address" HorizontalContentAlignment="Left" Margin="5,5,0,0" Grid.Column="0" Grid.Row="0"/>
-        <TextBox Name="TxtName" Text="Player Name" HorizontalContentAlignment="Right" Margin="5,5,5,0" Grid.Column="1" Grid.Row="0"/>
-        <Button HorizontalAlignment="Left" Content="Connect" Margin="5,5,0,0" Width="60"  Grid.Column="2" Grid.Row="0" Click="Button_Click"></Button>
+        <TextBox Name="TxtServerIp" Text="192.168.112.103" HorizontalContentAlignment="Left" Margin="5,5,0,0" Grid.Column="0" Grid.Row="0"/>
+        <TextBox Name="TxtName" Text="Legos" HorizontalContentAlignment="Right" Margin="5,5,5,0" Grid.Column="1" Grid.Row="0"/>
+        <Button HorizontalAlignment="Left" Content="Connect" Margin="5,5,0,0" Width="60"  Grid.Column="2" Grid.Row="0" Click="Button_Click" Height="25" VerticalAlignment="Top"></Button>
         <Label Content="Detail" Grid.Column="0" Grid.Row="1"></Label>
         <TextBox Name="TxtDetail"  Margin="5,0,0,5" Text="" Grid.Column="0" Grid.Row="2"/>
         <Canvas Name="CvsMain" Margin="5,0,0,5" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"></Canvas>

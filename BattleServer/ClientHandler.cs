@@ -14,8 +14,8 @@ namespace BattleServer
     class ClientHandler
     {
         private Socket _socket;
-        private BattleDecoder _decoder;
-        private BattleEncoder _encoder;
+        private IMessageDecoder _decoder;
+        private IMessageEncoder _encoder;
 
         public ClientHandler(Socket clientSock)
         {
@@ -42,7 +42,7 @@ namespace BattleServer
             Console.WriteLine("client disconnected");
         }
 
-        private void ReceiveMessage(BattleMessage message)
+        private void ReceiveMessage(BaseMessage message)
         {
             Console.WriteLine("Received message {0}", message.GetType());
 

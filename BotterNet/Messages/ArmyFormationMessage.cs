@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace BotterNet.Messages
 {
+    [Serializable]
     class ArmyFormationMessage: BaseMessage
     {
         public override int Code

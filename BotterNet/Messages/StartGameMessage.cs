@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BotterNet.Messages
 {
+    [Serializable]
     class StartGameMessage: BaseMessage
     {
         public override int Code

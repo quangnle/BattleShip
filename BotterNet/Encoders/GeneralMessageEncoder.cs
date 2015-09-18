@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BotterNet.Encoders
 {
-    public class GeneralMessageEncoder: BattleEncoder
+    public class GeneralMessageEncoder: IMessageEncoder
     {
         public byte[] Encode(BaseMessage message)
         {

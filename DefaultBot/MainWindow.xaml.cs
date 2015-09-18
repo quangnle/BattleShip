@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BotterNet;
 using BotterNet.Messages;
+using BotterNet.Encoders;
 
 namespace DefaultBot
 {
@@ -23,9 +24,13 @@ namespace DefaultBot
     /// </summary>
     public partial class MainWindow : Window
     {
-        private int _port = 2409;
+        private string _host = "192.168.112.103";
+        private int _port = 4444;
         private int _bufferSize = 1024;
         private GameProcessor _processor = new GameProcessor();
+
+        private IMessageEncoder _encoder = new GeneralMessageEncoder();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -39,11 +44,15 @@ namespace DefaultBot
                 receiver.OnMessageReceived += OnDataReceived;
 
                 var client = new TcpClient();
-                client.Connect(TxtServerIp.Text, _port);
+                client.Connect(_host, _port);
 
                 while (!_processor.IsGameEnd)
                 {
                     var stream = client.GetStream();
+
+                    var bytes = _encoder.Encode(new LoginMessage() { UserName = "Legos" });
+                    stream.Write(bytes, 0, bytes.Length);
+
                     var buffer = new byte[_bufferSize];
                     int bytesCount = stream.Read(buffer, 0, _bufferSize);
                     receiver.OnReceivedBytes(buffer, bytesCount);

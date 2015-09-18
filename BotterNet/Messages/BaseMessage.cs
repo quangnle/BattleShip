@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace BotterNet.Messages
 {
+    [Serializable]
     public abstract class BaseMessage
     {
         public static int HeaderLength = sizeof(Int32);

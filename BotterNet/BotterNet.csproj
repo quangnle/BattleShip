@@ -52,7 +52,7 @@
     <Compile Include="Core\ShipInfo.cs" />
     <Compile Include="Core\ShipType.cs" />
     <Compile Include="Decoders\IMessageDecoder.cs" />
-    <Compile Include="Encoders\BattleEncoder.cs" />
+    <Compile Include="Encoders\IMessageEncoder.cs" />
     <Compile Include="Encoders\GeneralMessageEncoder.cs" />
     <Compile Include="Exceptions\InvalidMessage.cs" />
     <Compile Include="Messages\AcceptedMessage.cs" />
