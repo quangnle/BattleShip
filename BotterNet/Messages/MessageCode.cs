@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace BotterNet.Message
 {
+    [Flags]
     public enum MessageCode
     {
-        Login
+        Login = 1,
+        Attack = 2
     }
 }

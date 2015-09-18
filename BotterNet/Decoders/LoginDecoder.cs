@@ -16,7 +16,7 @@ namespace BotterNet.Decoder
             var binReader = new BinaryReader(new MemoryStream(content));
 
             return new LoginMessage() {
-                Username = Encoding.ASCII.GetString(content)
+                UserName = Encoding.ASCII.GetString(content)
             };
         }
     }
