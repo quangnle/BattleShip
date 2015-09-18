@@ -46,13 +46,18 @@
   <ItemGroup>
     <Compile Include="Decoders\BattleDecoder.cs" />
     <Compile Include="Encoders\BattleEncoder.cs" />
-    <Compile Include="Encoders\LoginEncoder.cs" />
+    <Compile Include="Encoders\GeneralMessageEncoder.cs" />
     <Compile Include="Exceptions\InvalidMessage.cs" />
+    <Compile Include="Messages\AttackResponse.cs" />
     <Compile Include="Messages\BattleMessage.cs" />
-    <Compile Include="Decoders\LoginDecoder.cs" />
+    <Compile Include="Decoders\GeneralMessageDecoder.cs" />
+    <Compile Include="Messages\GetAttackMessage.cs" />
     <Compile Include="Messages\LoginMessage.cs" />
     <Compile Include="MessageReceiver.cs" />
+    <Compile Include="Messages\LoginResultMessage.cs" />
     <Compile Include="Messages\MessageCode.cs" />
+    <Compile Include="Messages\ReadyMessage.cs" />
+    <Compile Include="Messages\StartMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

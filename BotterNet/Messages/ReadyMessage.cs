@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BotterNet.Encoders
+namespace BotterNet.Messages
 {
-    class LoginEncoder: BattleEncoder
+    class ReadyMessage: BattleMessage
     {
-        public byte[] GetBytes()
+        public override int Code
         {
-            throw new NotImplementedException();
+            get { return (int) MessageCode.Ready; }
         }
     }
 }

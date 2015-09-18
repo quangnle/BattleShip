@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BotterNet.Message
+namespace BotterNet.Messages
 {
     [Serializable]
     public class LoginMessage: BattleMessage
