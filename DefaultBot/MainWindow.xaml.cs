@@ -23,7 +23,7 @@ namespace DefaultBot
     /// </summary>
     public partial class MainWindow : Window
     {
-        private int _port = 2409;
+        private int _port = 4444;
         private int _bufferSize = 1024;
         private GameProcessor _processor = new GameProcessor();
         public MainWindow()
@@ -39,11 +39,16 @@ namespace DefaultBot
                 receiver.OnMessageReceived += OnDataReceived;
 
                 var client = new TcpClient();
-                client.Connect(TxtServerIp.Text, _port);
+                client.Connect(_processor.ServerAddress, _port);
+
+                var stream = client.GetStream();
+                var loginMsg = new LoginMessage { IdMessage = 1, UserName = _processor.Name };
+                var bytes = loginMsg.GetBytes();
+                stream.Write(bytes, 0, bytes.Length);
 
                 while (!_processor.IsGameEnd)
                 {
-                    var stream = client.GetStream();
+                    
                     var buffer = new byte[_bufferSize];
                     int bytesCount = stream.Read(buffer, 0, _bufferSize);
                     receiver.OnReceivedBytes(buffer, bytesCount);
@@ -67,6 +72,7 @@ namespace DefaultBot
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             _processor.Name = TxtName.Text;
+            _processor.ServerAddress = TxtServerIp.Text;
 
             var t = new Task(() => SocketProcess());
             t.Start();

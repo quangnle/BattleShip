@@ -13,6 +13,7 @@
             <RowDefinition Height="25"/>
             <RowDefinition Height="266*"/>
         </Grid.RowDefinitions>
+        <!--192.168.112.103-->
         <TextBox Name="TxtServerIp" Text="Your Server's IP address" HorizontalContentAlignment="Left" Margin="5,5,0,0" Grid.Column="0" Grid.Row="0"/>
         <TextBox Name="TxtName" Text="Player Name" HorizontalContentAlignment="Right" Margin="5,5,5,0" Grid.Column="1" Grid.Row="0"/>
         <Button HorizontalAlignment="Left" Content="Connect" Margin="5,5,0,0" Width="60"  Grid.Column="2" Grid.Row="0" Click="Button_Click"></Button>
