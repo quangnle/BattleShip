@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace BotterNet.Decoder
 {
-    public interface BattleDecoder
+    public interface IMessageDecoder
     {
-        BattleMessage Parse(byte[] content);
+        BaseMessage Parse(byte[] content);
     }
 }

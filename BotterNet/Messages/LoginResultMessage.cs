@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace BotterNet.Messages
 {
     [Serializable]
-    class LoginResultMessage: BattleMessage
+    class LoginResultMessage: BaseMessage
     {
         public override int Code
         {

@@ -47,10 +47,11 @@
     <Compile Include="Core\BaseMapInfo.cs" />
     <Compile Include="Core\DefaultMapInfo.cs" />
     <Compile Include="Core\Direction.cs" />
+    <Compile Include="Core\HitInfo.cs" />
     <Compile Include="Core\Position.cs" />
     <Compile Include="Core\ShipInfo.cs" />
     <Compile Include="Core\ShipType.cs" />
-    <Compile Include="Decoders\BattleDecoder.cs" />
+    <Compile Include="Decoders\IMessageDecoder.cs" />
     <Compile Include="Encoders\BattleEncoder.cs" />
     <Compile Include="Encoders\GeneralMessageEncoder.cs" />
     <Compile Include="Exceptions\InvalidMessage.cs" />
@@ -58,7 +59,7 @@
     <Compile Include="Messages\ArmyFormationMessage.cs" />
     <Compile Include="Messages\AttackMessage.cs" />
     <Compile Include="Messages\AttackResponseMessage.cs" />
-    <Compile Include="Messages\BattleMessage.cs" />
+    <Compile Include="Messages\BaseMessage.cs" />
     <Compile Include="Decoders\GeneralMessageDecoder.cs" />
     <Compile Include="Messages\GameResultMessage.cs" />
     <Compile Include="Messages\GetAttackMessage.cs" />

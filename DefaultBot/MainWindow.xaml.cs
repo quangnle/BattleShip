@@ -55,7 +55,7 @@ namespace DefaultBot
             }
         }
 
-        private void OnDataReceived(BattleMessage message)
+        private void OnDataReceived(BaseMessage message)
         {
             if (message is LoginMessage)
             {

@@ -1,4 +1,4 @@
-﻿using BatterNet.Core;
+﻿using BotterNet.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BotterNet.Messages
 {
-    class ArmyFormationMessage: BattleMessage
+    class ArmyFormationMessage: BaseMessage
     {
         public override int Code
         {

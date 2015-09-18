@@ -9,13 +9,26 @@ using System.Threading.Tasks;
 
 namespace BotterNet
 {
+    public delegate void MessageReceivedDelegate(BaseMessage message);
+
     public class MessageReceiver
     {
         private List<byte> _buffer = new List<byte>();
-        //private Dictionary<MessageCode, BattleDecoder> _decoders = new Dictionary<MessageCode, BattleDecoder>();
-        BattleDecoder _decoder = new GeneralMessageDecoder();
         
-        public delegate void MessageReceivedDelegate(BattleMessage message);
+        private IMessageDecoder _decoder = new GeneralMessageDecoder();
+
+        public IMessageDecoder Decoder
+        {
+            get
+            {
+                return _decoder;
+            }
+            set
+            {
+                _decoder = value;
+            }
+        }
+
         public MessageReceivedDelegate OnMessageReceived;
 
         public void OnReceivedBytes(byte[] buffer, int numBytes)
@@ -26,7 +39,7 @@ namespace BotterNet
 
             _buffer.AddRange(receivedBuffer);
 
-            if (_buffer.Count < BattleMessage.HeaderLength)
+            if (_buffer.Count < BaseMessage.HeaderLength)
                 return;
 
              var binReader = new BinaryReader(new MemoryStream(_buffer.ToArray()));
@@ -34,7 +47,7 @@ namespace BotterNet
             // header
             var length = binReader.ReadInt32();
 
-            if (_buffer.Count >= BattleMessage.HeaderLength + length)
+            if (_buffer.Count >= BaseMessage.HeaderLength + length)
             {
                 // message body
                 var buf = binReader.ReadBytes(length);
@@ -44,13 +57,9 @@ namespace BotterNet
                 if (OnMessageReceived != null)
                     OnMessageReceived(message);
 
-                _buffer = _buffer.GetRange(BattleMessage.HeaderLength, _buffer.Count - BattleMessage.HeaderLength - length);
+                _buffer = _buffer.GetRange(BaseMessage.HeaderLength, _buffer.Count - BaseMessage.HeaderLength - length);
             }
         }
 
-        //public void AttachDecoder(MessageCode messageCode, BattleDecoder decoder)
-        //{
-        //    _decoders[messageCode] = decoder;
-        //}
     }
 }

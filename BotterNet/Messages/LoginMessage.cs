@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace BotterNet.Messages
 {
     [Serializable]
-    public class LoginMessage: BattleMessage
+    public class LoginMessage: BaseMessage
     {
         
         public override int Code { get { return (int)MessageCode.Login; } }

@@ -9,6 +9,7 @@ namespace BotterNet.Messages
     [Flags]
     public enum MessageCode
     {
+        // net 
         Accepted = 1,
 
         // client

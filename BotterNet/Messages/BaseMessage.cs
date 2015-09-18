@@ -8,9 +8,11 @@ using System.Threading.Tasks;
 
 namespace BotterNet.Messages
 {
-    public abstract class BattleMessage
+    public abstract class BaseMessage
     {
         public static int HeaderLength = sizeof(Int32);
+
+        public int IdMessage { get; set; }
 
         public abstract int Code { get; }
 

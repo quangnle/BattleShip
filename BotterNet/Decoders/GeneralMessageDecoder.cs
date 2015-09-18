@@ -10,14 +10,14 @@ using System.Threading.Tasks;
 
 namespace BotterNet.Decoder
 {
-    public class GeneralMessageDecoder: BattleDecoder
+    public class GeneralMessageDecoder: IMessageDecoder
     {
-        public BattleMessage Parse(byte[] content)
+        public BaseMessage Parse(byte[] content)
         {
             var bf = new BinaryFormatter();
             using (var ms = new MemoryStream(content))
             {
-                return (bf.Deserialize(ms) as BattleMessage);
+                return (bf.Deserialize(ms) as BaseMessage);
             }
         }
     }
