@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleBot", "SimpleBot\Simp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotterNet", "BotterNet\BotterNet.csproj", "{2EA11F53-59EE-4065-81CA-6D5E4BF7A4CC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleServer", "BattleServer\BattleServer.csproj", "{D31B51E4-8A2A-4022-89F6-4A021602D774}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,10 @@ Global
 		{2EA11F53-59EE-4065-81CA-6D5E4BF7A4CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EA11F53-59EE-4065-81CA-6D5E4BF7A4CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EA11F53-59EE-4065-81CA-6D5E4BF7A4CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D31B51E4-8A2A-4022-89F6-4A021602D774}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D31B51E4-8A2A-4022-89F6-4A021602D774}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D31B51E4-8A2A-4022-89F6-4A021602D774}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D31B51E4-8A2A-4022-89F6-4A021602D774}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

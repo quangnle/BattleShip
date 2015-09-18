@@ -9,10 +9,13 @@ namespace BotterNet.Messages
     [Flags]
     public enum MessageCode
     {
+        Accepted = 1,
+
         // client
         Login = 100,
         Attack = 101,
         Ready = 102,
+        ArmyFormation = 103,
 
         // server
         LoginResult = 200,

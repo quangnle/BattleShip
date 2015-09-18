@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2EA11F53-59EE-4065-81CA-6D5E4BF7A4CC}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{D31B51E4-8A2A-4022-89F6-4A021602D774}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BotterNet</RootNamespace>
-    <AssemblyName>BotterNet</AssemblyName>
+    <RootNamespace>BattleServer</RootNamespace>
+    <AssemblyName>BattleServer</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\bin\Debug\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -31,9 +31,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -44,31 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\BaseMapInfo.cs" />
-    <Compile Include="Core\DefaultMapInfo.cs" />
-    <Compile Include="Core\Direction.cs" />
-    <Compile Include="Core\Position.cs" />
-    <Compile Include="Core\ShipInfo.cs" />
-    <Compile Include="Core\ShipType.cs" />
-    <Compile Include="Decoders\BattleDecoder.cs" />
-    <Compile Include="Encoders\BattleEncoder.cs" />
-    <Compile Include="Encoders\GeneralMessageEncoder.cs" />
-    <Compile Include="Exceptions\InvalidMessage.cs" />
-    <Compile Include="Messages\AcceptedMessage.cs" />
-    <Compile Include="Messages\ArmyFormationMessage.cs" />
-    <Compile Include="Messages\AttackMessage.cs" />
-    <Compile Include="Messages\AttackResponseMessage.cs" />
-    <Compile Include="Messages\BattleMessage.cs" />
-    <Compile Include="Decoders\GeneralMessageDecoder.cs" />
-    <Compile Include="Messages\GameResultMessage.cs" />
-    <Compile Include="Messages\GetAttackMessage.cs" />
-    <Compile Include="Messages\LoginMessage.cs" />
-    <Compile Include="MessageReceiver.cs" />
-    <Compile Include="Messages\LoginResultMessage.cs" />
-    <Compile Include="Messages\MessageCode.cs" />
-    <Compile Include="Messages\ReadyMessage.cs" />
-    <Compile Include="Messages\StartGameMessage.cs" />
+    <Compile Include="BattleServer.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
