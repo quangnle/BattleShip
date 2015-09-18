@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AIInterface", "AIInterface\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleBot", "SimpleBot\SimpleBot.csproj", "{A085E686-BDF8-46D7-A727-1CE9AFF27D4F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotterNet", "BotterNet\BotterNet.csproj", "{2EA11F53-59EE-4065-81CA-6D5E4BF7A4CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,10 @@ Global
 		{A085E686-BDF8-46D7-A727-1CE9AFF27D4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A085E686-BDF8-46D7-A727-1CE9AFF27D4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A085E686-BDF8-46D7-A727-1CE9AFF27D4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EA11F53-59EE-4065-81CA-6D5E4BF7A4CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EA11F53-59EE-4065-81CA-6D5E4BF7A4CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EA11F53-59EE-4065-81CA-6D5E4BF7A4CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EA11F53-59EE-4065-81CA-6D5E4BF7A4CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
