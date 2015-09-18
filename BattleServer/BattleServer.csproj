@@ -42,11 +42,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BattleServer.cs" />
+    <Compile Include="ClientHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BotterNet\BotterNet.csproj">
+      <Project>{2ea11f53-59ee-4065-81ca-6d5e4bf7a4cc}</Project>
+      <Name>BotterNet</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

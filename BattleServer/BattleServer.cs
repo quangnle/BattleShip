@@ -1,9 +1,12 @@
-﻿using System;
+﻿using BotterNet;
+using BotterNet.Messages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace BattleServer
@@ -22,11 +25,18 @@ namespace BattleServer
         {
             _socket.Listen(1000);
 
-            var clientHandler = _socket.Accept();
+            while (!(_socket.Available == 0 & _socket.Poll(1000, SelectMode.SelectRead)))
+            {
+                var clientSock = _socket.Accept();
 
-            var buffer = new byte[1024];
+                var remoteEndPoint = clientSock.RemoteEndPoint as IPEndPoint;
+                Console.WriteLine("{0} connected from port {1}", remoteEndPoint.Address, remoteEndPoint.Port);
 
-            //clientHandler.Receive(buffer)
+                var clientHandler = new ClientHandler(clientSock);
+
+                var thread = new Thread(() => clientHandler.Start());
+                thread.Start();
+            }
         }
     }
 }
