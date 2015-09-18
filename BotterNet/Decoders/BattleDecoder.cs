@@ -1,4 +1,4 @@
-﻿using BotterNet.Message;
+﻿using BotterNet.Messages;
 using System;
 using System.Collections.Generic;
 using System.Linq;

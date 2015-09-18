@@ -4,12 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BotterNet.Message
+namespace BotterNet.Messages
 {
     [Flags]
     public enum MessageCode
     {
-        Login = 1,
-        Attack = 2
+        // client
+        Login = 100,
+        Attack = 101,
+        Ready = 102,
+
+        // server
+        LoginResult = 200,
+        StartGame = 201,
+        GetAttack = 202,
+        AttackResponse = 203,
+
+        GameResult = 210,
     }
 }

@@ -6,16 +6,18 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BotterNet.Message
+namespace BotterNet.Messages
 {
     public abstract class BattleMessage
     {
+        public static int HeaderLength = sizeof(Int32);
+
         public abstract int Code { get; }
 
         public virtual byte[] GetBytes()
         {
-            BinaryFormatter bf = new BinaryFormatter();
-            using (MemoryStream ms = new MemoryStream())
+            var bf = new BinaryFormatter();
+            using (var ms = new MemoryStream())
             {
                 bf.Serialize(ms, this);
                 return ms.ToArray();
