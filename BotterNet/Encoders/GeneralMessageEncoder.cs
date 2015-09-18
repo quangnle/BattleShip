@@ -9,14 +9,14 @@ namespace BotterNet.Encoders
 {
     class GeneralMessageEncoder: BattleEncoder
     {
-        public byte[] Encode(BattleMessage message)
+        public byte[] Encode(BaseMessage message)
         {
             var bytes = message.GetBytes();
             
-            var sendBytes = new byte[BattleMessage.HeaderLength + bytes.Length];
+            var sendBytes = new byte[BaseMessage.HeaderLength + bytes.Length];
             
             Array.Copy(BitConverter.GetBytes(bytes.Length), sendBytes, sizeof(int));
-            Array.Copy(bytes, 0, sendBytes, BattleMessage.HeaderLength, bytes.Length);
+            Array.Copy(bytes, 0, sendBytes, BaseMessage.HeaderLength, bytes.Length);
 
             return sendBytes;
         }

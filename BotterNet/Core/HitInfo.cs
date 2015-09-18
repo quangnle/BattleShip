@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace BotterNet.Core
 {
-    public class Position
+    public class HitInfo
     {
-        public int Row { get; set; }
-        public int Column { get; set; }
+        public Position Pos { get; set; }
+        public bool IsHit { get; set; }
+        public bool Destroyed { get; set; }
     }
 }

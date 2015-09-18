@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BatterNet.Core
+namespace BotterNet.Core
 {
     public class DefaultMapInfo : BaseMapInfo
     {

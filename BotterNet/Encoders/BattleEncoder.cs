@@ -9,6 +9,6 @@ namespace BotterNet.Encoders
 {
     public interface BattleEncoder
     {
-        byte[] Encode(BattleMessage message);
+        byte[] Encode(BaseMessage message);
     }
 }

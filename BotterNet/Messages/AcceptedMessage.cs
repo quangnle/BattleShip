@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BotterNet.Messages
 {
-    class AcceptedMessage: BattleMessage
+    class AcceptedMessage: BaseMessage
     {
         public override int Code
         {
