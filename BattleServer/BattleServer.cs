@@ -15,6 +15,8 @@ namespace BattleServer
     {
         private Socket _socket;
 
+        private List<ClientProfile> _clients = new List<ClientProfile>();
+
         public BattleServer(string host, int port)
         {
             _socket = new Socket(SocketType.Stream, ProtocolType.Tcp);
@@ -33,10 +35,30 @@ namespace BattleServer
                 Console.WriteLine("{0} connected from port {1}", remoteEndPoint.Address, remoteEndPoint.Port);
 
                 var clientHandler = new ClientHandler(clientSock);
+                clientHandler.OnLoginSuccess = OnClientAuthenticated;
 
                 var thread = new Thread(() => clientHandler.Start());
                 thread.Start();
             }
+        }
+
+        private void OnClientAuthenticated(string username, Socket socket)
+        {
+            _clients.Add(new ClientProfile() { Username = username, Handler = socket });
+
+            if(_clients.Count >= 2)
+            {
+                StartGame(_clients[0], _clients[1]);
+                _clients.RemoveRange(0, 2);
+            }
+        }
+
+        private void StartGame(ClientProfile sideA, ClientProfile sideB)
+        {
+            Console.WriteLine("Paired {0} with {1}", sideA.Username, sideB.Username);
+
+            var gameControl = new GameController(sideA, sideB);
+            gameControl.Start();
         }
     }
 }

@@ -10,7 +10,16 @@ namespace BattleServer
     {
         static void Main(string[] args)
         {
-            var server = new BattleServer("0.0.0.0", 4444);
+            var host = "0.0.0.0";
+            var port = 9999;
+
+            if (args.Length > 1)
+                host = args[0];
+
+            if (args.Length > 2)
+                port = Int32.Parse(args[1]);
+
+            var server = new BattleServer(host, port);
             server.Start();
         }
     }

@@ -24,8 +24,8 @@ namespace DefaultBot
     /// </summary>
     public partial class MainWindow : Window
     {
-        private string _host = "192.168.112.103";
-        private int _port = 4444;
+        private string _host = "127.0.0.1";
+        private int _port = 9999;
         private int _bufferSize = 1024;
         private GameProcessor _processor = new GameProcessor();
 

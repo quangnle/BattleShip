@@ -43,6 +43,9 @@
   <ItemGroup>
     <Compile Include="BattleServer.cs" />
     <Compile Include="ClientHandler.cs" />
+    <Compile Include="ClientProfile.cs" />
+    <Compile Include="GameController.cs" />
+    <Compile Include="GameState.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

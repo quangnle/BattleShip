@@ -17,6 +17,11 @@ namespace BattleServer
         private IMessageDecoder _decoder;
         private IMessageEncoder _encoder;
 
+        public delegate void LoginSuccessDelegate(string username, Socket socket);
+        public LoginSuccessDelegate OnLoginSuccess;
+
+        private bool _isAuthenticated = false;
+
         public ClientHandler(Socket clientSock)
         {
             _socket = clientSock;
@@ -32,7 +37,7 @@ namespace BattleServer
             var mr = new MessageReceiver();
             mr.OnMessageReceived += ReceiveMessage;
 
-            while (!(_socket.Available == 0 & _socket.Poll(1000, SelectMode.SelectRead)))
+            while (!(_socket.Available == 0 & _socket.Poll(1000, SelectMode.SelectRead)) && !_isAuthenticated)
             {
                 var numBytes = _socket.Receive(buffer, 1024, SocketFlags.None);
 
@@ -44,10 +49,17 @@ namespace BattleServer
 
         private void ReceiveMessage(BaseMessage message)
         {
-            Console.WriteLine("Received message {0}", message.GetType());
+            if(message.GetType() == typeof(LoginMessage))
+            {
+                var loginMessage = message as LoginMessage;
 
-            var bytes = _encoder.Encode(message);
-            _socket.Send(bytes);
+                Console.WriteLine("Received LoginMessage(Username = {0})", loginMessage.UserName);
+
+                if (OnLoginSuccess != null)
+                    OnLoginSuccess(loginMessage.UserName, _socket);
+
+                _isAuthenticated = true;
+            }
         }
     }
 }

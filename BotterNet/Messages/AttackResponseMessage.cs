@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BotterNet.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,6 @@ namespace BotterNet.Messages
             get { return (int) MessageCode.AttackResponse; }
         }
 
-        public bool IsDestroyed { get; set; }
-        public bool IsHit { get; set; }
+        public HitInfo Result { get; set; }
     }
 }

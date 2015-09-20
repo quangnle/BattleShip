@@ -14,3 +14,12 @@
 /DefaultBot/bin/Debug
 /DefaultBot/obj/Debug
 /bin/Debug
+/DefaultBot/obj/Release
+/AIInterface/bin/Release
+/AIInterface/obj/Release
+/BattleServer/bin/Release
+/BattleServer/obj/Release
+/BattleShip/obj/Release
+/DefaultBot/bin/Release
+/BattleShip/bin/Release
+/SimpleBot/obj/Release
